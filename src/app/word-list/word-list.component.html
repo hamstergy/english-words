@@ -1,0 +1,18 @@
+{{count}}
+<table class="table">
+    <thead>
+        <th>English</th>
+        <th>Русский</th>
+        <th>Delete</th>
+    </thead>
+    <tbody>
+      <tr *ngFor="let word of words | paginate: { itemsPerPage: 10, currentPage: p }">
+        <td>{{word.eng}}</td>
+        <td>{{word.rus}}</td>
+        <td>
+            <button class="btn btn-warning" (click)="delete(word.id)">X</button>
+        </td>
+      </tr>
+    </tbody>
+</table>
+<pagination-controls (pageChange)="p = $event"></pagination-controls>
